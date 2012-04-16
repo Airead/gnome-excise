@@ -1,3 +1,5 @@
+DESTDIR = /usr/bin
+
 CC	= gcc
 
 CFLAGS	= -Wall -g
@@ -17,10 +19,10 @@ clean:
 	rm -f *~ a.out *.o Hello core.*
 
 install:
-	cp Hello /usr/bin
+	cp Hello $(DESTDIR)
 
 uninstall:
-	rm -f /usr/bin/Hello
+	rm -f $(DESTDIR)/Hello
 
 
 
