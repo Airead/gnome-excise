@@ -11,13 +11,16 @@ LDFLAGS += $(shell pkg-config --libs gtk+-2.0)
 Hello: hello.c
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
-.PHONY: clean
+.PHONY: clean install uninstall
 
 clean:
 	rm -f *~ a.out *.o Hello core.*
 
+install:
+	cp Hello /usr/bin
 
-
+uninstall:
+	rm -f /usr/bin/Hello
 
 
 
