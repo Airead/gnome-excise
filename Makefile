@@ -1,4 +1,4 @@
-DESTDIR = /usr/bin
+#DESTDIR = /usr/bin
 
 CC	= gcc
 
@@ -19,10 +19,13 @@ clean:
 	rm -f *~ a.out *.o Hello core.*
 
 install:
-	cp Hello $(DESTDIR)
+	cp Hello $(DESTDIR)/usr/bin 
+	mkdir -p $(DESTDIR)/usr/share/hello
+	cp logo.png $(DESTDIR)/usr/share/hello
 
 uninstall:
 	rm -f $(DESTDIR)/Hello
+	rm -rf /usr/share/hello
 
 
 

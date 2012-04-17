@@ -19,7 +19,7 @@
 
 Name:           hello
 Version:	0.0.1
-Release:	2
+Release:	3
 License:	GPL
 Summary:	hello - quick run
 Url:		https://github.com/Airead/gnome-excise
@@ -41,7 +41,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/bin
-make DESTDIR=$RPM_BUILD_ROOT/usr/bin install
+mkdir -p $RPM_BUILD_ROOT/usr/share/hello
+make DESTDIR=$RPM_BUILD_ROOT install
 
 %clean
 %{?buildroot:%__rm -rf "%{buildroot}"}
@@ -49,6 +50,7 @@ make DESTDIR=$RPM_BUILD_ROOT/usr/bin install
 %files
 %defattr(-,root,root)
 /usr/bin/Hello
+/usr/share/hello/logo.png
 %doc README
 
 %changelog
