@@ -70,6 +70,7 @@ void run_app(GtkWidget *widget, gpointer data)
 int main(int argc, char *argv[])
 {
     GtkWindow *window;
+    GError *error = NULL;
     GtkLabel *label;
     GtkEntry *entry_box;
     GtkButton *button;
@@ -94,6 +95,13 @@ int main(int argc, char *argv[])
     g_signal_connect(window,
                      "destroy", G_CALLBACK(end_program),
                      NULL);
+
+    /* set icon */
+    if (gtk_window_set_icon_from_file(window, "logo.png", &error) == FALSE) {
+        g_printerr("set icon failed: %s\n", error->message);
+        g_error_free(error);
+        error = NULL;
+    }
 
     /* create a vertical box and pack it into window  */
     vbox = g_object_new(GTK_TYPE_VBOX, "spacing", 6, NULL);
