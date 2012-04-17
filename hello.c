@@ -59,7 +59,7 @@ void run_app(GtkWidget *widget, gpointer data)
     } else if (pid == 0) {      /* child process */
         g_print("child run %s\n", str);
         if (execlp(str, str, NULL) < 0) {
-        g_printerr("execl failed: %s\n", strerror(errno));
+            g_printerr("execl failed: %s\n", strerror(errno));
             exit(1);
         }
     } /* child end */
