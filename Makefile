@@ -24,8 +24,8 @@ install:
 	cp logo.png $(DESTDIR)/usr/share/hello
 
 uninstall:
-	rm -f $(DESTDIR)/Hello
-	rm -rf /usr/share/hello
+	rm -f $(DESTDIR)/usr/bin/Hello
+	rm -rf $(DESTDIR)/usr/share/hello
 
 
 
